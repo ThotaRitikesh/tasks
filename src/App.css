@@ -1,0 +1,40 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.middle {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.time {
+  font-size: 5rem;
+  text-align: right;
+  margin-right: 1rem;
+} 
+.selectDiv{
+  border: 1px solid black;
+  width: 70px;
+}
+.optionsDiv{
+  border: 1px solid black;
+  width: 70px;
+}
+/* .optionsDiv{
+  display: none;
+  background-color: brown;
+} */
+/* .visibility-toggle{
+  visibility: hidden;
+} */
