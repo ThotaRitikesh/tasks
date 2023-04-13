@@ -1,40 +1,113 @@
-.App {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  margin: 0;
+/* .table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.row {
+  display: table-row;
 }
 
 .header {
-  display: flex;
-  justify-content: flex-end;
+  font-weight: bold;
 }
 
-.middle {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
+.cell {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
 }
 
-.time {
-  font-size: 5rem;
-  text-align: right;
-  margin-right: 1rem;
-} 
-.selectDiv{
-  border: 1px solid black;
-  width: 70px;
-}
-.optionsDiv{
-  border: 1px solid black;
-  width: 70px;
-}
-/* .optionsDiv{
-  display: none;
-  background-color: brown;
+@media (max-width: 600px) {
+  .table {
+    display: block;
+  }
+  
+  .row {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .cell:before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .cell {
+    display: block;
+    text-align: left;
+  }
 } */
-/* .visibility-toggle{
-  visibility: hidden;
-} */
+.table {
+  display: table;
+  width: 98%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.row {
+  display: table-row;
+}
+
+.header {
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+.cell {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 20px;
+  text-align: center;
+}
+
+.scrollable {
+  overflow: auto;
+  height: 800px;
+}
+
+.rows {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.cell:before {
+  content: attr(data-label);
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cell {
+  display: block;
+  text-align: left;
+}
+
+@media (min-width: 601px) {
+  .cell {
+    display: table-cell;
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .cell {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
+  }
+}
