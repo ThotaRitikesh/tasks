@@ -1,9 +1,17 @@
-.container{
+
+.container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  justify-content: space-around;
-  width: 100%;
+  top: 30%;
 }
+
+.child,
+.child1,
+.child2 {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+}
+

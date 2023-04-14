@@ -1,190 +1,193 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
-// import Dialog from '@material-ui/core/Dialog';
-// import DialogTitle from '@material-ui/core/DialogTitle';
-// import DialogContent from '@material-ui/core/DialogContent';
-// import DialogContentText from '@material-ui/core/DialogContentText';
-// import DialogActions from '@material-ui/core/DialogActions';
-// import Button from '@material-ui/core/Button';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
-import Autocomplete 
-// { createFilterOptions } 
-from '@material-ui/lab/Autocomplete';
-import { top100Films } from './autoCompleteData'
-import './App.css'
-
-// const filter = createFilterOptions();
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import { top100Films } from './autoCompleteData';
+import './App.css';
 
 function App() {
-  // const [value, setValue] = useState(null);
-  const [state, setState] = useState({
-    gilad: true,
-    jason: false,
-    antoine: false,
-  });
-  // const [open, toggleOpen] = React.useState(false);
-  // const handleClose = () => {
-  //   setDialogValue({
-  //     title: '',
-  //     year: '',
-  //   });
+  const [fields, setFields] = useState([
+    { label: 'First Name', value: 'Thota' },
+    { label: 'Last Name', value: 'Ritikesh' },
+    { label: 'Address', value: 'Hyderabad' },
+    { label: 'State', value: 'Telangana' },
+    { label :'Customer-Id', value:'12345'},
+    { label :'phone number', value:'98765433456'},
+    { label :'Age', value:'20'}
+  ]);
 
-  //   toggleOpen(false);
-  // };
+  const [fields1, setFields1] = useState([
+    { label: 'movie 1', value: 'The Godfather' },
+    { label: 'movie 2', value: 'The Matrix' },
+    // { label: 'Field 3', value: 'test2' },
+    // { label: 'Field 4', value: 'test3' },
+  ]);
 
-  // const [dialogValue, setDialogValue] = React.useState({
-  //   title: '',
-  //   year: '',
-  // });
+  const [fields2, setFields2] = useState([
+    { label: 'placed order', value: 'yes' },
+    { label: 'success', value: '' },
+    // { label: 'Field 3', value: 'test2' },
+    // { label: 'Field 4', value: 'test3' },
+  ]);
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setValue({
-  //     title: dialogValue.title,
-  //     year: parseInt(dialogValue.year, 10),
-  //   });
 
-  //   handleClose();
-  // };
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+  const handleFieldChange = (index) => (event) => {
+    const newFields = [...fields];
+    newFields[index].value = event.target.value;
+    setFields(newFields);
   };
-  const { gilad, jason, antoine } = state;
+
+  const handleAutocompleteChange = (index) => (_, value) => {
+    const newFields1 = [...fields1];
+    newFields1[index].value = value || '';
+    setFields1(newFields1);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log({...fields,...fields1});
+  };
+
   return (
-<div className='container'>
-  <div>
-  <form  noValidate autoComplete="off">
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br />
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br />
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br />
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br />
-  </form>
-  </div>
-  {/* <Autocomplete
-        value={value}
-        // onChange={(event, newValue) => {
-        //   if (typeof newValue === 'string') {
-        //     // timeout to avoid instant validation of the dialog's form.
-        //     setTimeout(() => {
-        //       // toggleOpen(true);
-        //       setDialogValue({
-        //         title: newValue,
-        //         year: '',
-        //       });
-        //     });
-        //   } else if (newValue && newValue.inputValue) {
-        //     toggleOpen(true);
-        //     setDialogValue({
-        //       title: newValue.inputValue,
-        //       year: '',
-        //     });
-        //   } else {
-        //     setValue(newValue);
-        //   }
-        // }}
-        filterOptions={(options, params) => {
-          const filtered = filter(options, params);
-
-          if (params.inputValue !== '') {
-            filtered.push({
-              inputValue: params.inputValue,
-              title: `Add "${params.inputValue}"`,
-            });
-          }
-
-          return filtered;
-        }}
-        id="free-solo-dialog-demo"
-        options={top100Films}
-        getOptionLabel={(option) => {
-          // e.g value selected with enter, right from the input
-          if (typeof option === 'string') {
-            return option;
-          }
-          if (option.inputValue) {
-            return option.inputValue;
-          }
-          return option.title;
-        }}
-        selectOnFocus
-        clearOnBlur
-        handleHomeEndKeys
-        renderOption={(option) => option.title}
-        style={{ width: 300 }}
-        freeSolo
-        renderInput={(params) => (
-          <TextField {...params} label="Free solo dialog" variant="outlined" />
-        )}
-      /> */}
-      <div style={{width: '250px' }}>
-       <Autocomplete
-        id="free-solo-demo"
-        freeSolo
-        options={top100Films.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
-        )}
-      />
-             <Autocomplete
-        id="free-solo-demo"
-        freeSolo
-        options={top100Films.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
-        )}
-      />
-             <Autocomplete
-        id="free-solo-demo"
-        freeSolo
-        options={top100Films.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
-        )}
-      />
-             <Autocomplete
-        id="free-solo-demo"
-        freeSolo
-        options={top100Films.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField {...params} label="freeSolo" margin="normal" variant="outlined" />
-        )}
-      />
-      </div>
-      <div>
-      <FormControl component="fieldset">
-        <FormLabel component="legend">Assign responsibility</FormLabel>
-        <FormGroup>
-          <FormControlLabel
-            control={<Checkbox checked={gilad} onChange={handleChange} name="gilad" />}
-            label="Gilad Gray"
-          />
-          <FormControlLabel
-            control={<Checkbox checked={jason} onChange={handleChange} name="jason" />}
-            label="Jason Killian"
-          />
-          <FormControlLabel
-            control={<Checkbox checked={antoine} onChange={handleChange} name="antoine" />}
-            label="Antoine Llorca"
-          />
-        </FormGroup>
-        <FormHelperText>Be careful</FormHelperText>
-      </FormControl>
-      </div>
-      <div>
-  <form  noValidate autoComplete="off">
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br /> <br />
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br /> <br />
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br />
-  <TextField id="outlined-basic" label="Outlined" variant="outlined" className='txt'/> <br />
-  </form>
-  </div>
-</div>
-  )
+    <div className='container'>
+        {fields.map((field, index) => (
+          <div key={index} className='child'>
+            <TextField
+              id={`field-${index}`}
+              label={field.label}
+              variant="outlined"
+              className='txt'
+              value={field.value}
+              onChange={handleFieldChange(index)}
+            />          
+          </div>
+        ))}
+        {fields1.map((field, index) => (
+        <div className='child1'>
+        <Autocomplete
+              id={`autocomplete-${index}`}
+              options={top100Films.map((option) => option.title)}
+              onChange={handleAutocompleteChange(index)}
+              // defaultValue={field.value}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label={`Autocomplete ${index}`}
+                  margin="normal"
+                  variant="outlined"
+                />
+              )}
+            />
+        </div>
+         ))}
+        <div className='child2'>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Assign responsibility</FormLabel>
+            <FormGroup>
+              {fields2.map((field, index) => (
+                <FormControlLabel
+                  key={index}
+                  control={<Checkbox checked={field.value !== ''} name={`field-${index}`} />}
+                  label={field.label}
+                />
+              ))}
+            </FormGroup>
+            <FormHelperText><button type="submit" onClick={handleSubmit}>Submit</button></FormHelperText>
+          </FormControl>
+        </div>
+        
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+// import React, { useState } from 'react'
+// import TextField from '@material-ui/core/TextField';
+// import FormLabel from '@material-ui/core/FormLabel';
+// import FormControl from '@material-ui/core/FormControl';
+// import FormGroup from '@material-ui/core/FormGroup';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import Autocomplete from '@material-ui/lab/Autocomplete';
+// import { top100Films } from './autoCompleteData'
+// import './App.css'
+
+// function App() {
+//   const [fields, setFields] = useState([
+//     { label: 'Field 1', value: 'test1' },
+//     { label: 'Field 2', value: 'test2' },
+//     { label: 'Field 3', value: '' },
+//     { label: 'Field 4', value: '' },
+//   ]);
+
+//   const handleFieldChange = (index) => (event) => {
+//     const newFields = [...fields];
+//     newFields[index].value = event.target.value;
+//     setFields(newFields);
+//     console.log(fields);
+//   };
+
+//   return (
+//     <div className='container'>
+//       <div>
+//         <form noValidate autoComplete="off">
+//           {fields.map((field, index) => (
+//             <><TextField
+//               key={index}
+//               id={`field-${index}`}
+//               label={field.label}
+//               variant="outlined"
+//               className='txt'
+//               value={field.value}
+//               onChange={handleFieldChange(index)}
+//             /><br /></>
+//           ))}
+//         </form>
+//       </div>
+//       <div style={{ width: '250px' }}>
+//         {/* Map over the fields array to create Autocomplete components */}
+//         {fields.map((field, index) => (
+//           <Autocomplete
+//             key={index}
+//             id={`autocomplete-${index}`}
+//             freeSolo
+//             options={top100Films.map((option) => option.title)}
+//             renderInput={(params) => (
+//               <TextField
+//                 {...params}
+//                 label={`Autocomplete ${index}`}
+//                 margin="normal"
+//                 variant="outlined"
+//               />
+//             )}
+//           />
+//         ))}
+//       </div>
+//       <div>
+//         <FormControl component="fieldset">
+//           <FormLabel component="legend">Assign responsibility</FormLabel>
+//           <FormGroup>
+//             {fields.map((field, index) => (
+//               <FormControlLabel
+//                 key={index}
+//                 control={<Checkbox checked={field.value} onChange={handleFieldChange(index)} name={`field-${index}`} />}
+//                 label={field.label}
+//               />
+//             ))}
+//           </FormGroup>
+//           <FormHelperText>Be careful</FormHelperText>
+//         </FormControl>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App;
+
