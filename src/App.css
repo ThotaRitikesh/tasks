@@ -1,104 +1,65 @@
-/* .table {
-  display: table;
-  width: 100%;
+
+/* .table { */
+  /* display: table; */
+  /* display: flex; */
+  /* width: 98%;
   border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.row {
-  display: table-row;
-}
-
-.header {
-  font-weight: bold;
-}
-
-.cell {
-  display: table-cell;
-  border: 1px solid black;
-  padding: 20px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .table {
-    display: block;
-  }
-  
-  .row {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .cell:before {
-    content: attr(data-label);
-    display: inline-block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .cell {
-    display: block;
-    text-align: left;
-  }
+  border-spacing: 3px;
 } */
-.table {
-  display: table;
-  width: 98%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
-.row {
-  display: table-row;
-}
+/* .row { */
+  /* display: table-row; */
+  /* display: flex; */
+/* } */
 
-.header {
+/* .header {
   font-weight: bold;
   position: sticky;
   top: 0;
   background-color: white;
   z-index: 1;
-}
+} */
 
-.cell {
-  display: table-cell;
-  border: 1px solid black;
+/* .cell { */
+  /* display: table-cell; */
+ /* display: flex; */
+  /* border: 1px solid black;
   padding: 20px;
   text-align: center;
-}
+  overflow: auto; */
+/* } */
 
-.scrollable {
+/* .scrollable {
   overflow: auto;
   height: 800px;
-}
-
+} */
+/* 
 .rows {
-  display: table;
+  display: flex;
   width: 100%;
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  /* border-spacing: 0; */
+/* } */
 
-.row:nth-child(even) {
+/* .row:nth-child(even) {
   background-color: #f2f2f2;
-}
+} */
 
-.cell:before {
+/* .cell:before {
   content: attr(data-label);
   display: inline-block;
   font-weight: bold;
   margin-bottom: 5px;
-}
+} */
 
-.cell {
+/* .cell {
   display: block;
   text-align: left;
-}
+} */
 
-@media (min-width: 601px) {
+/* @media (min-width: 601px) {
   .cell {
-    display: table-cell;
+    display: flex;
     text-align: center;
   }
   
@@ -110,4 +71,31 @@
     flex-basis: 33.33%;
     max-width: 33.33%;
   }
+} */
+/* @media (max-width: 600px) {
+  .table {
+    display: block;
+  }
+  
+  .row {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .cell {
+    display: block;
+    text-align: left;
+  }
+} */
+
+.table{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* width: 100%;
+  border: 2px solid black;
+  height: 100%; */
+}
+.row-header{
+ border: 2px solid black;
 }
