@@ -6,11 +6,6 @@
   margin: 0;
 }
 
-.header {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .middle {
   display: flex;
   flex-direction: row-reverse;
@@ -18,23 +13,17 @@
   align-items: center;
 }
 
-.time {
-  font-size: 5rem;
-  text-align: right;
-  margin-right: 1rem;
-} 
 .selectDiv{
   border: 1px solid black;
-  width: 70px;
+  width: 100px;
+  text-align: center;
+  margin-top: 300px;
+  cursor: pointer;
+
 }
 .optionsDiv{
   border: 1px solid black;
-  width: 70px;
+  width: 100px;
+  cursor: pointer;
+  text-align: center;
 }
-/* .optionsDiv{
-  display: none;
-  background-color: brown;
-} */
-/* .visibility-toggle{
-  visibility: hidden;
-} */
