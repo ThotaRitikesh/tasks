@@ -1,10 +1,12 @@
 import { useState } from "react";
+import Chip from '@material-ui/core/Chip';
 import "./App.css";
 
 function Select({ isMultiSelect }) {
   const [selectedOptions, setselectedOptions] = useState([]);
   const unitOptions = ["option 1", "option 2", "option 3", "option 4", "option 5", "option 6"];
   const [isHidden, setIsHidden] = useState(true);
+  
 
   const parent = (e) => {
     setIsHidden(isHidden ? false : true);
