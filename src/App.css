@@ -1,4 +1,4 @@
-.App {
+/* .App {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -26,4 +26,40 @@
   width: 100px;
   cursor: pointer;
   text-align: center;
+} */
+
+
+.container {
+  text-align: center;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: bold;
+  background-color: lightgray;
+  cursor: pointer;
+  height: 150px;
+  width: 150px;
+}
+
+.red {
+  background-color: red;
+  color: red;
+  }
+  
+  .blue {
+  background-color: blue;
+  color: blue;
+  }
