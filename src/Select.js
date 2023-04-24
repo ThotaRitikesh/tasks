@@ -1,11 +1,16 @@
 import { useState } from "react";
-import Chip from '@material-ui/core/Chip';
+// import Chip from '@material-ui/core/Chip';
 import "./App.css";
 
 function Select({ isMultiSelect }) {
   const [selectedOptions, setselectedOptions] = useState([]);
   const unitOptions = ["option 1", "option 2", "option 3", "option 4", "option 5", "option 6"];
   const [isHidden, setIsHidden] = useState(true);
+
+  const numbers = [1, 2, 3, 4, 5];
+  const listItems = numbers.map((number) =>
+  <li>{number}</li>
+);
   
 
   const parent = (e) => {
@@ -35,7 +40,7 @@ function Select({ isMultiSelect }) {
     <div className="middle">
         <div>
         <div className="selectDiv" onClick={parent}>
-          {selectedOptions.length > 0 ? selectedOptions.join(", ") : "Select"}
+          {selectedOptions.length > 0 ? (<div>{selectedOptions}</div>) : "Select"}
         </div>
         {!isHidden && (
           <div id="unitOptions" className="optionsDiv" >
@@ -52,6 +57,9 @@ function Select({ isMultiSelect }) {
             ))}
           </div>
         )}
+    </div>
+    <div>
+      <ul>{listItems}</ul>
     </div>
     </div>
   );
